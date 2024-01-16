@@ -13,7 +13,7 @@ A script using machine learning to predict the **IUCN** **threatened** or **leas
     input.file<-"AAA_RF_IUCN_240115_test.csv"
     iucn_classification(input.file = input.file)
 
- 4. The input file name should follow the template of the [AAA_RF_IUCN_240115_test.csv] (https://github.com/cybprojects65/IUCNClassifier/blob/main/AAA_RF_IUCN_240115_test.csv) file
+ 4. The input file name should follow the template of the [AAA_RF_IUCN_240115_test.csv](https://github.com/cybprojects65/IUCNClassifier/blob/main/AAA_RF_IUCN_240115_test.csv) file
  5. The mandatory fields of the test file are:
 > "Order", "PD50", "Fresh", "Brack", "Saltwater", "BodyShapeShort",
 > "DemPelShort", "MaxLength", "Troph", "AquariumShort", "GameFish",
