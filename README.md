@@ -1,7 +1,7 @@
 
 # IUCN Classifier
 
-A script using machine learning to predict the **IUCN** **threatened** or **least concern** status based on FishBase data. 
+A script using machine learning to predict marine species' **IUCN** **threatened** or **least concern** status based on FishBase data. 
 
 ## Application
 
