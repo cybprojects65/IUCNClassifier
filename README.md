@@ -9,9 +9,9 @@ A script using machine learning to predict the **IUCN** **threatened** or **leas
  2. Download the **iucn_rf_model.bin** model file and **data.scaling.bin** data-scaling file and put them in the same folder as the script
  3. Load the script or execute it by changing the input file name. E.g., at the end of the IUCNclassifier_application.R script you can see:
 
-    library(randomForest) 
-    input.file<-"AAA_RF_IUCN_240115_test.csv"
-    iucn_classification(input.file = input.file)
+   > library(randomForest) 
+   > input.file<-"AAA_RF_IUCN_240115_test.csv"
+   > iucn_classification(input.file = input.file)
 
  4. The input file name should follow the template of the [AAA_RF_IUCN_240115_test.csv](https://github.com/cybprojects65/IUCNClassifier/blob/main/AAA_RF_IUCN_240115_test.csv) file
  5. The mandatory fields of the test file are:
@@ -61,8 +61,8 @@ The Random Forest parameters can be adjusted through the following lines:
 and the performance assessment can be regulated through the following parameters:
 
    > crossvalidate <- T  #enable/disable cross validation
-    >k             <- 20 # k-fold cross validation
-    >thr           <-0.5 # dichotomic decision threshold on the RF output to distinguish between threatened (>thr) or least concern (<thr) species
+   > k             <- 20 # k-fold cross validation
+   > thr           <-0.5 # dichotomic decision threshold on the RF output to distinguish between threatened (>thr) or least concern (<thr) species
 
 
 	
