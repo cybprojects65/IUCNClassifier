@@ -1,5 +1,6 @@
 rm(list = ls())
 library(randomForest)
+library(ClusterR)
 
 #####FEATURE SELECTION parameters
 feature_selection_pca<-F #activate (T) / deactivate (F) feature selection
@@ -9,7 +10,7 @@ eigenvector_threshold<-0.95
 feature_threshold<-0.9
 #enable characterisation analysis on the most important features
 importance.cumulative.threshold<-0.8
-do.characterisation.analysis<-T
+do.characterisation.analysis<-F
 
 #####NUMERIC FEATURE TRANFORMATION
 transform.numeric.columns.to.categorial<-F
@@ -19,7 +20,7 @@ do.error.analysis<-F
 
 #####RF parameters
 crossvalidate <- T  # Do cross-validation (T/F)
-k             <- 5 # k-fold cross validation
+k             <- 20 # k-fold cross validation
 thr           <-0.5 # dichotomic decision threshold on the RF output
 n.trees       <-500 #number of decision trees from which an ensemble assessment should be extracted
 CV.proportion <- (1-(1/k)) # Set to 0.995 for LOOCV
@@ -66,6 +67,10 @@ Selected.data.completecolumns.withSpp<-Selected.data.completecolumns
 #columnsToExclude<-c(columnsToExclude,"Brack")
 #columnsToExclude<-c("SpecCode","Class","Family","Genus","Order", "Species", "IUCN_Code","AquariumShorta","ImportanceShort","PD50","AnaCatShort","MaxLength","Troph","AquariumShort","GameFish","Importance","RepGuild1","CountOfC_Code","CountOfAreaCode")
 Selected.data.completecolumns<-Selected.data.completecolumns[,!( names(Selected.data.completecolumns) %in% columnsToExclude ) ]
+
+data_for_scaling<-Selected.data.completecolumns
+save(file="data.scaling.bin",data_for_scaling)
+cat("NOTE - TRAINING DATA FOR SCALING SAVED TO =","data.scaling.bin","\n")
 
 #collect the different data types
 categorial.columns <- c()
@@ -261,6 +266,8 @@ original_values <- (train.1[, "o1"])
 accuracy   <- length(which(pr.nn.t == original_values))/length(pr.nn.t)
 
 cat("Accuracy selftest =", accuracy,"\n")
+cat("NOTE - MODEL SAVED TO =","iucn_rf_model.bin","\n")
+save(file="iucn_rf_model.bin",rf_model)
 
 #####FEATURE IMPORTANCE ACCORDING TO RF
 if (do.characterisation.analysis){
