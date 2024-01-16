@@ -9,8 +9,10 @@ A script using machine learning to predict the **IUCN** **threatened** or **leas
  2. Download the **iucn_rf_model.bin** model file and **data.scaling.bin** data-scaling file and put them in the same folder as the script
  3. Load the script or execute it by changing the input file name. E.g., at the end of the IUCNclassifier_application.R script you can see:
 
-   > library(randomForest) 
+   > library(randomForest)
+> 
    > input.file<-"AAA_RF_IUCN_240115_test.csv"
+> 
    > iucn_classification(input.file = input.file)
 
  4. The input file name should follow the template of the [AAA_RF_IUCN_240115_test.csv](https://github.com/cybprojects65/IUCNClassifier/blob/main/AAA_RF_IUCN_240115_test.csv) file
@@ -27,14 +29,14 @@ A script using machine learning to predict the **IUCN** **threatened** or **leas
  1. Download the IUCNclassifier_vX_random_forest.R script
  2. Change the input data in
 
-    Reference.data <- read.csv("AAA_RF_IUCN_240115.csv")
+  >  Reference.data <- read.csv("AAA_RF_IUCN_240115.csv")
 
  3. Check that mandatory fields are provided:
 > "Order", "PD50", "Fresh", "Brack", "Saltwater", "BodyShapeShort",
 > "DemPelShort", "MaxLength", "Troph", "AquariumShort", "GameFish",
 > "Importance", "Protected", "ClimateZone", "Resilience", "RepGuild1",
 > "CountOfC_Code", "CountOfAreaCode"
-	Plus the "IUCN_Short" column containing the "Threatened" or "Least concern" value. See the [reference example](https://github.com/cybprojects65/IUCNClassifier/blob/main/AAA_RF_IUCN_240115.csv).
+> 	Plus the "IUCN_Short" column containing the "Threatened" or "Least concern" value. See the [reference example](https://github.com/cybprojects65/IUCNClassifier/blob/main/AAA_RF_IUCN_240115.csv).
 
  4. Execute the script. It will produce a model file (**iucn_rf_model.bin**) and a data-scaling reference (**data.scaling.bin**) to be used for application.
 
@@ -61,7 +63,9 @@ The Random Forest parameters can be adjusted through the following lines:
 and the performance assessment can be regulated through the following parameters:
 
    > crossvalidate <- T  #enable/disable cross validation
+>
    > k             <- 20 # k-fold cross validation
+> 
    > thr           <-0.5 # dichotomic decision threshold on the RF output to distinguish between threatened (>thr) or least concern (<thr) species
 
 
