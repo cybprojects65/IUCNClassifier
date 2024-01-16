@@ -102,4 +102,5 @@ iucn_classification<-function(input.file){
 
 library(randomForest)
 input.file<-"AAA_RF_IUCN_240115_test.csv"
+#input.file<-"AAA_RF_IUCN_NoBlanks240116_comparison.csv"
 iucn_classification(input.file = input.file)
