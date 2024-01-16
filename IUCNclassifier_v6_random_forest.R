@@ -25,6 +25,8 @@ thr           <-0.5 # dichotomic decision threshold on the RF output
 n.trees       <-500 #number of decision trees from which an ensemble assessment should be extracted
 CV.proportion <- (1-(1/k)) # Set to 0.995 for LOOCV
 
+
+#####CODE START
 # Function to perform one-hot encoding: converts from categorial to numeric data 
 one_hot_encode <- function(categories) {
   unique_categories <- unique(categories)

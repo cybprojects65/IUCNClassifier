@@ -1,5 +1,4 @@
 rm(list = ls())
-library(randomForest)
 
 ##################FUNCTION DEFINITION##################
 # Function to perform one-hot encoding: converts from categorial to numeric data 
@@ -101,5 +100,6 @@ iucn_classification<-function(input.file){
 }
 ##################END OF FUNCTION DEFINITION##################
 
+library(randomForest)
 input.file<-"AAA_RF_IUCN_240115_test.csv"
 iucn_classification(input.file = input.file)
